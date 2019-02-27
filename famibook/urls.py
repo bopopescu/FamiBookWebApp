@@ -16,16 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from famibook.apps.daybooks.views import DaybookViewSet
+from famibook.apps.categories.views import CategoryViewSet
+from famibook.apps.bills.views import BillViewSet
 
 #docs settings
 from rest_framework_swagger.views import get_swagger_view
 schema_view = get_swagger_view(title='FamiBook API')
 
-
 #resful api settings
 from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 router.register(r'daybooks', DaybookViewSet)
+router.register(r'categories', CategoryViewSet)
+router.register(r'bills', BillViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,5 +36,5 @@ urlpatterns = [
     path('api/v1/rest-auth/', include('rest_auth.urls')),
     path('api/v1/rest-auth/registration/', include('rest_auth.registration.urls')),
     path('api/v1/users/', include('famibook.apps.users.urls')),
-    path('api/v1/doc/', schema_view),
+    path('api/v1/docs/', schema_view),
 ]

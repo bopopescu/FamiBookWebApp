@@ -23,6 +23,8 @@ print('[settings.common]Project path' + BASE_DIR)
 
 INSTALLED_APPS = [
     'famibook.apps.daybooks',
+    'famibook.apps.categories',
+    'famibook.apps.bills',
     'famibook.apps.users',
     'rest_framework',
     'rest_framework.authtoken',
