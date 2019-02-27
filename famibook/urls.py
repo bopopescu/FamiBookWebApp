@@ -16,7 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+#docs settings
+from rest_framework_swagger.views import get_swagger_view
+schema_view = get_swagger_view(title='FamiBook API')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include('famibook.apps.users.urls')),
+    path('api/v1/doc/', schema_view),
 ]
