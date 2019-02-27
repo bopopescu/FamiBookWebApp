@@ -15,13 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from famibook.apps.daybooks.views import DaybookViewSet
 
 #docs settings
 from rest_framework_swagger.views import get_swagger_view
 schema_view = get_swagger_view(title='FamiBook API')
 
+
+#resful api settings
+from rest_framework.routers import DefaultRouter
+router = DefaultRouter()
+router.register(r'daybooks', DaybookViewSet)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/', include('famibook.apps.users.urls')),
+    path('api/v1/',include(router.urls)),
+    path('api/v1/rest-auth/', include('rest_auth.urls')),
+    path('api/v1/rest-auth/registration/', include('rest_auth.registration.urls')),
+    path('api/v1/users/', include('famibook.apps.users.urls')),
     path('api/v1/doc/', schema_view),
 ]
