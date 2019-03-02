@@ -1,5 +1,3 @@
-from django.shortcuts import render
-
 from .models import Category
 from .serializers import CategorySerializer
 from rest_framework import viewsets

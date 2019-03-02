@@ -18,7 +18,6 @@ from django.urls import path, include
 from famibook.apps.daybooks.views import DaybookViewSet
 from famibook.apps.categories.views import CategoryViewSet
 from famibook.apps.bills.views import BillViewSet
-from famibook.apps.users.views import UserViewSet
 
 #docs settings
 from rest_framework_swagger.views import get_swagger_view

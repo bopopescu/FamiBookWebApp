@@ -4,6 +4,7 @@ from ..categories.models import Category
 from ..daybooks.models import Daybook
 from ..base.baseModel import BaseModel
 
+
 class Bill(BaseModel):
     name = models.CharField(max_length=20)
     type = models.IntegerField() #0=expense 1=income
@@ -11,9 +12,11 @@ class Bill(BaseModel):
     date = models.DateTimeField()
     note = models.TextField(max_length=20)
     category = models.ForeignKey(Category, related_name='bills', on_delete=models.SET_NULL, blank=True, null=True)
-    daybook = models.ForeignKey(Daybook,on_delete=models.CASCADE)
+    daybook = models.ForeignKey(Daybook, on_delete=models.CASCADE)
+
     def __str__(self):
         return self.name
+
     class Meta:
         db_table = "bills"   #real db table name
 
@@ -23,4 +26,4 @@ class Bill(BaseModel):
 class BillAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Bill._meta.fields]
     search_fields = ['name']
-    ordering =['name']
+    ordering = ['name']

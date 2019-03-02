@@ -1,5 +1,3 @@
-from django.shortcuts import render
-
 from .models import Bill
 from .serializers import BillSerializer
 from rest_framework import viewsets

@@ -14,9 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-print('[settings.common]Project path' + BASE_DIR)
-
-
+print('[settings.common]Project base path' + BASE_DIR)
 
 
 # Application definition
@@ -42,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+#Auth settings
 AUTH_USER_MODEL = 'users.CustomUser'
 SITE_ID = 1
 

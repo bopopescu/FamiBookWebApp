@@ -1,5 +1,3 @@
-from django.shortcuts import render
-
 from .models import Daybook
 from .serializers import DaybookSerializer
 from rest_framework import viewsets
