@@ -20,10 +20,6 @@ print('[settings.common]Project base path' + BASE_DIR)
 # Application definition
 
 INSTALLED_APPS = [
-    'famibook.apps.daybooks',
-    'famibook.apps.categories',
-    'famibook.apps.bills',
-    'famibook.apps.users',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
@@ -38,6 +34,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'famibook.apps.daybooks',
+    'famibook.apps.categories',
+    'famibook.apps.bills',
+    'famibook.apps.users',
 ]
 
 # Auth settings
