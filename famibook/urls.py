@@ -19,12 +19,14 @@ from famibook.apps.daybooks.views import DaybookViewSet
 from famibook.apps.categories.views import CategoryViewSet
 from famibook.apps.bills.views import BillViewSet
 
-#docs settings
+
+# docs settings
 from rest_framework_swagger.views import get_swagger_view
+from rest_framework.routers import DefaultRouter
 schema_view = get_swagger_view(title='FamiBook API')
 
-#resful api settings
-from rest_framework.routers import DefaultRouter
+
+# resful api settings
 router = DefaultRouter()
 router.register(r'daybooks', DaybookViewSet)
 router.register(r'categories', CategoryViewSet)
@@ -33,7 +35,7 @@ router.register(r'users', BillViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/',include(router.urls)),
+    path('api/v1/', include(router.urls)),
     path('api/v1/rest-auth/', include('rest_auth.urls')),
     path('api/v1/rest-auth/registration/', include('rest_auth.registration.urls')),
     path('api/v1/users/', include('famibook.apps.users.urls')),

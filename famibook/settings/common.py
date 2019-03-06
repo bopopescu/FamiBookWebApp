@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-#Auth settings
+# Auth settings
 AUTH_USER_MODEL = 'users.CustomUser'
 SITE_ID = 1
 

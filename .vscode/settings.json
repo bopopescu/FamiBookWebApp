@@ -1,0 +1,45 @@
+{
+    "python.jediEnabled": false,
+    "terminal.external.osxExec": "iTerminal2.app",
+    "editor.fontFamily": "Menlo, Consolas, DejaVu Sans Mono, monospace",
+    "terminal.integrated.fontFamily": "Hack Nerd Font",
+    "terminal.integrated.cursorStyle": "line",
+    "workbench.colorCustomizations" : {
+        "terminal.background":"#000000",
+        "terminal.foreground":"#B7B8B9",
+        "terminalCursor.background":"#B7B8B9",
+        "terminalCursor.foreground":"#B7B8B9",
+        "terminal.ansiBlack":"#0C0D0E",
+        "terminal.ansiBlue":"#3182BD",
+        "terminal.ansiBrightBlack":"#737475",
+        "terminal.ansiBrightBlue":"#3182BD",
+        "terminal.ansiBrightCyan":"#80B1D3",
+        "terminal.ansiBrightGreen":"#31A354",
+        "terminal.ansiBrightMagenta":"#756BB1",
+        "terminal.ansiBrightRed":"#E31A1C",
+        "terminal.ansiBrightWhite":"#FCFDFE",
+        "terminal.ansiBrightYellow":"#DCA060",
+        "terminal.ansiCyan":"#80B1D3",
+        "terminal.ansiGreen":"#31A354",
+        "terminal.ansiMagenta":"#756BB1",
+        "terminal.ansiRed":"#E31A1C",
+        "terminal.ansiWhite":"#B7B8B9",
+        "terminal.ansiYellow":"#DCA060"
+    },
+    "editor.cursorStyle": "line-thin",
+    "files.exclude": {
+        "**/__pycache__": true
+    },
+    "workbench.iconTheme": "vscode-icons",
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.fontWeightBold": "normal",
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+        "pylint_django"
+    ],
+    "workbench.colorTheme": "Default Dark+",
+    "editor.fontSize": 14,
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+
+}

@@ -5,4 +5,4 @@ from .models import Bill
 class BillSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bill
-        fields = '__all__' # can set differente column ('id', 'name')
+        fields = '__all__'  # can set differente column ('id', 'name')
