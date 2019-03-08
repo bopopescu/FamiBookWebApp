@@ -19,3 +19,4 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Category._meta.fields]
     search_fields = ['name']
     ordering = ['name']
+    list_display_links = ['name']

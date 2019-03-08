@@ -7,7 +7,7 @@ from ..base.baseModel import BaseModel
 
 class Bill(BaseModel):
     name = models.CharField(max_length=20)
-    type = models.IntegerField() #0=expense 1=income
+    type = models.IntegerField()  # 0=expense 1=income
     amount = models.DecimalField(max_digits=12, decimal_places=2)
     date = models.DateTimeField()
     note = models.TextField(max_length=20)
@@ -18,12 +18,15 @@ class Bill(BaseModel):
         return self.name
 
     class Meta:
-        db_table = "bills"   #real db table name
+        db_table = "bills"  # real db table name
 
 
 # Display setting on admin page
 @admin.register(Bill)
 class BillAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in Bill._meta.fields]
+    list_display = ['id', 'name', 'type', 'amount', 'date',
+                    'note', 'category', 'daybook', 'created_at', 'updated_at']
     search_fields = ['name']
     ordering = ['name']
+    list_display_links = ['name']
+    list_filter = ('id',)

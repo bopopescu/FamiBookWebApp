@@ -19,3 +19,4 @@ class DaybookAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Daybook._meta.fields]
     search_fields = ['name']
     ordering = ['name']
+    list_display_links = ['name']

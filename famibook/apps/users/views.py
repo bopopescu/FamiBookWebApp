@@ -10,6 +10,8 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     permission_classes = (IsAuthenticated,)
 
+
+
 #https://juejin.im/post/5a66d262f265da3e317e4cc5
 #http://drf.jiuyou.info/#/drf/authentication?id=basicauthentication
 #https://www.django-rest-framework.org/api-guide/views/
