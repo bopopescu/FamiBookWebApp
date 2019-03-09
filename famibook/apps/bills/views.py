@@ -11,6 +11,16 @@ class BillViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
 
 
+
+
+# Many to Many ORM
+# https://docs.djangoproject.com/en/1.11/topics/db/examples/many_to_many/
+# Bills.users.add(user1, user2)
+# Bills.users.create(...)
+# Bills.users.all()
+# Bills.objects.filter(user_id = 1)
+
+
 #https://www.django-rest-framework.org/api-guide/viewsets/
 #https: // github.com/twtrubiks/django-rest-framework-tutorial
    
