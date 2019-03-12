@@ -1,7 +1,9 @@
 from .models import Bill
+from ..users.models import CustomUser
 from .serializers import BillSerializer
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
+
 
 
 # Create your views here.
@@ -10,8 +12,15 @@ class BillViewSet(viewsets.ModelViewSet):
     serializer_class = BillSerializer
     permission_classes = (IsAuthenticated,)
 
+    def get_queryset(self):
+        if 'daybook_pk' in self.kwargs:
+            return Bill.objects.filter(daybook=self.kwargs['daybook_pk'])
+        elif 'user_pk' in self.kwargs:
+            return Bill.objects.filter(users=self.kwargs['user_pk'])
 
 
+# nest roytes
+# https: // github.com/alanjds/drf-nested-routers
 
 # Many to Many ORM
 # https://docs.djangoproject.com/en/1.11/topics/db/examples/many_to_many/
@@ -20,11 +29,8 @@ class BillViewSet(viewsets.ModelViewSet):
 # Bills.users.all()
 # Bills.objects.filter(user_id = 1)
 
-
 #https://www.django-rest-framework.org/api-guide/viewsets/
 #https: // github.com/twtrubiks/django-rest-framework-tutorial
-   
-
 
 # class ShareViewSet(viewsets.ModelViewSet):
 #     queryset = Share.objects.all()

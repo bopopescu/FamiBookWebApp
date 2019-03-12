@@ -19,10 +19,11 @@ from famibook.apps.daybooks.views import DaybookViewSet
 from famibook.apps.categories.views import CategoryViewSet
 from famibook.apps.bills.views import BillViewSet
 from famibook.apps.users.views import UserViewSet
+from rest_framework.routers import DefaultRouter
+from rest_framework_nested import routers
 
 # docs settings
 from rest_framework_swagger.views import get_swagger_view
-from rest_framework.routers import DefaultRouter
 schema_view = get_swagger_view(title='FamiBook API')
 
 
@@ -33,9 +34,16 @@ router.register(r'categories', CategoryViewSet)
 router.register(r'bills', BillViewSet)
 router.register(r'users', UserViewSet)
 
+daybookNestRouter = routers.NestedSimpleRouter(router, r'daybooks', lookup='daybook')
+daybookNestRouter.register(r'bills', BillViewSet, base_name='daybook-bills')
+userNestRouter = routers.NestedSimpleRouter(router, r'users', lookup='user')
+userNestRouter.register(r'bills', BillViewSet, base_name='user-bills')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
+    path('api/v1/', include(daybookNestRouter.urls)),
+    path('api/v1/', include(userNestRouter.urls)),
     path('api/v1/rest-auth/', include('rest_auth.urls')),
     path('api/v1/rest-auth/registration/', include('rest_auth.registration.urls')),
     path('api/v1/users/', include('famibook.apps.users.urls')),
