@@ -26,7 +26,7 @@ class DaybookViewSet(viewsets.ModelViewSet):
             return Response(result, status=status.HTTP_200_OK)
         except Daybook.DoesNotExist:
             daybook = None
-            result = {'message': 'Fail to join the daybook'}
+            result = {'message': 'The daybook that you want to join does not exist'}
             return Response(result, status=status.HTTP_200_OK)
 
     @action(detail=False, methods=['post'])

@@ -1,6 +1,5 @@
 {
     "python.jediEnabled": false,
-    "terminal.external.osxExec": "iTerminal2.app",
     "editor.fontFamily": "Menlo, Consolas, DejaVu Sans Mono, monospace",
     "terminal.integrated.fontFamily": "Hack Nerd Font",
     "terminal.integrated.cursorStyle": "line",

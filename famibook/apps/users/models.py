@@ -7,7 +7,11 @@ from ..daybooks.models import Daybook
 # from .forms import CustomUserCreationForm, CustomUserChangeForm
 
 class CustomUser(AbstractUser):
-    daybook = models.ForeignKey(Daybook, related_name='users', on_delete=models.SET_NULL, blank=True, null=True)
+    daybook = models.ForeignKey(Daybook,
+                                related_name='users',
+                                on_delete=models.SET_NULL,
+                                blank=True,
+                                null=True)
     avatar = models.FileField(upload_to='uploads/avatars/')
 
     def __str__(self):

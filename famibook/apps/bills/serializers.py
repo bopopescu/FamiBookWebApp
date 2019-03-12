@@ -6,3 +6,5 @@ class BillSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bill
         fields = '__all__'  # can set different column ('id', 'name')
+
+# TODO orderby
