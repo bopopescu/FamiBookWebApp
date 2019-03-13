@@ -5,7 +5,6 @@ from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 
 
-
 # Create your views here.
 class BillViewSet(viewsets.ModelViewSet):
     queryset = Bill.objects.all()
@@ -13,13 +12,21 @@ class BillViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
+        Bills = Bill.objects
+        if ('start_date' in self.request.data) and ('end_date' in self.request.data):
+            Bills = Bills.filter(date__range=(self.request.data['start_date'], self.request.data['end_date']))
+        elif ('start_date' in self.request.data):
+            Bills = Bills.filter(date__gte=self.request.data['start_date'])
+        elif ('end_date' in self.request.data):
+            Bills = Bills.filter(date__lte=self.request.data['end_date'])
         if 'daybook_pk' in self.kwargs:
-            return Bill.objects.filter(daybook=self.kwargs['daybook_pk'])
+            Bills = Bills.filter(daybook=self.kwargs['daybook_pk'])
         elif 'user_pk' in self.kwargs:
-            return Bill.objects.filter(users=self.kwargs['user_pk'])
+            Bills = Bills.filter(users=self.kwargs['user_pk'])
+        return Bills
 
 
-# nest roytes
+# nest routes
 # https: // github.com/alanjds/drf-nested-routers
 
 # Many to Many ORM
