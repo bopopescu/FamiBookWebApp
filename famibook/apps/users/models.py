@@ -1,10 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from ..daybooks.models import Daybook
-
+# from django.utils.translation import ugettext_lazy as _
 # from django.contrib import admin
 # from django.contrib.auth.admin import UserAdmin
 # from .forms import CustomUserCreationForm, CustomUserChangeForm
+
 
 class CustomUser(AbstractUser):
     daybook = models.ForeignKey(Daybook,
@@ -13,6 +14,11 @@ class CustomUser(AbstractUser):
                                 blank=True,
                                 null=True)
     avatar = models.FileField(upload_to='uploads/avatars/')
+    # username = None
+    # email = models.EmailField(_('email address'), unique=True)
+
+    # USERNAME_FIELD = 'email'
+    # REQUIRED_FIELDS = []
 
     def __str__(self):
         return self.email
