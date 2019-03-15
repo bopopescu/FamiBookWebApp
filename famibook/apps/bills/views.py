@@ -15,7 +15,8 @@ class BillViewSet(viewsets.ModelViewSet):
         Bills = Bill.objects
         # date query
         if ('start_date' in self.request.data) and ('end_date' in self.request.data):
-            Bills = Bills.filter(date__range=(self.request.data['start_date'], self.request.data['end_date']))
+            Bills = Bills.filter(date__range=(self.request.data['start_date'], 
+                                              self.request.data['end_date']))
         elif ('start_date' in self.request.data):
             Bills = Bills.filter(date__gte=self.request.data['start_date'])
         elif ('end_date' in self.request.data):

@@ -54,8 +54,8 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 
-#This is required otherwise it asks for email server
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# This is required otherwise it asks for email server
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "none"
