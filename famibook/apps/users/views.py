@@ -1,3 +1,4 @@
+from allauth.account.adapter import DefaultAccountAdapter
 from .models import CustomUser
 from .serializers import UserSerializer
 from rest_framework import viewsets
@@ -9,8 +10,6 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = CustomUser.objects.all()
     serializer_class = UserSerializer
     permission_classes = (IsAuthenticated,)
-
-
 
 
 #https://juejin.im/post/5a66d262f265da3e317e4cc5
