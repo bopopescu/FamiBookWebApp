@@ -73,7 +73,17 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# Swagger: api doc
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'basic': {
+            'type': 'basic'
+        }
+    },
+    'USE_SESSION_AUTH': True
+}
 ROOT_URLCONF = 'famibook.urls'
+
 
 TEMPLATES = [
     {

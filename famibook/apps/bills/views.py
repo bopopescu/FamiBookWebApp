@@ -2,7 +2,7 @@ from .models import Bill
 from ..users.models import CustomUser
 from .serializers import BillSerializer
 from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 
 
 # Create your views here.

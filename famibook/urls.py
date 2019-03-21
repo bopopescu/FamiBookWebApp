@@ -26,7 +26,6 @@ from rest_framework_nested import routers
 from rest_framework_swagger.views import get_swagger_view
 schema_view = get_swagger_view(title='FamiBook API')
 
-
 # resful api settings
 router = DefaultRouter()
 router.register(r'daybooks', DaybookViewSet)
